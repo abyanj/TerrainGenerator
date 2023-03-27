@@ -29,17 +29,17 @@ One can run the generator with `-help` as option to see the different command li
 ### Terrain generation of a mesh
 
 ```
-java -jar island/island.jar -i img/irregular.mesh -o img/irregularisland.mesh -s circle -e volcano -soil sand -biome canada
+java -jar island/island.jar -i img/irregular.mesh -o img/irregularisland.mesh -s circle -e volcano -soil clay -biome canada -seed 22
 ```
-```
-shape (-s) arguments: circle, square (REQUIRED)
-elevation (-e) arguments: volcano, hill, lagoon (REQUIRED)
-rivers (-rivers) arguments: # of rivers (defaults to random # of rivers) (NOT REQUIRED)
-lakes (-lakes) arguments: # of lakes (defaults to random # of lakes) (NOT REQUIRED)
-aquifers (-aquifers) arguments: # of aquifers (defaults to random # of aquifers) (NOT REQUIRED)
-soil profile (-soil) arguments: sand, clay, loam, Incorrect arguments(defaults to loam) (REQUIRED)
-biome (-biome) arguments: canada, indonesia, Incorrect arguments(defaults to canada) (REQUIRED)
-heatmap (-heatmap) arguments: altitude, absorption (NOT REQUIRED)
+
+shape (-s) arguments: `circle, square` (REQUIRED)
+elevation (-e) arguments: `volcano, hill, lagoon` (REQUIRED)
+rivers (-rivers) arguments: `# of rivers (defaults to random # of rivers)` (NOT REQUIRED)
+lakes (-lakes) arguments: `# of lakes (defaults to random # of lakes)` (NOT REQUIRED)
+aquifers (-aquifers) arguments: `# of aquifers (defaults to random # of aquifers)` (NOT REQUIRED)
+soil profile (-soil) arguments: `sand, clay, loam, Incorrect arguments(defaults to loam)` (REQUIRED)
+biome (-biome) arguments: `canada, indonesia, Incorrect arguments(defaults to canada)` (REQUIRED)
+heatmap (-heatmap) arguments: `altitude, absorption` (NOT REQUIRED)
 
 To test seed reproducibility, user must keep lakes/rivers/aquifers count consistent, or not include them, which will result in the seed generating them automatically.
 For example: -s square -e volcano -soil clay -biome canada -lakes 1 -rivers 2 -aquifers 3 -seed 10 
@@ -48,7 +48,7 @@ To test the seed while specificying lakes/rivers/aquifers, # of lakes, rivers, a
 For example: -s square -e volcano -soil clay -biome canada -seed 10
 To test the seed, you'd use the same command and # of lakes/aquifers/rivers will automically be generated and kept consistent for the seed.
 
-```
+
 
 ### Visualizing a mesh, (regular or debug mode)
 
