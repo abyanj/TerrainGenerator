@@ -32,20 +32,20 @@ One can run the generator with `-help` as option to see the different command li
 java -jar island/island.jar -i img/irregular.mesh -o img/irregularisland.mesh -s circle -e volcano -soil clay -biome canada -seed 22
 ```
 
-shape (-s) arguments: `circle, square` (REQUIRED)
-elevation (-e) arguments: `volcano, hill, lagoon` (REQUIRED)
-rivers (-rivers) arguments: `# of rivers (defaults to random # of rivers)` (NOT REQUIRED)
-lakes (-lakes) arguments: `# of lakes (defaults to random # of lakes)` (NOT REQUIRED)
-aquifers (-aquifers) arguments: `# of aquifers (defaults to random # of aquifers)` (NOT REQUIRED)
-soil profile (-soil) arguments: `sand, clay, loam, Incorrect arguments(defaults to loam)` (REQUIRED)
-biome (-biome) arguments: `canada, indonesia, Incorrect arguments(defaults to canada)` (REQUIRED)
-heatmap (-heatmap) arguments: `altitude, absorption` (NOT REQUIRED)
+1. shape (-s) arguments: `circle, square` (REQUIRED)
+2. elevation (-e) arguments: `volcano, hill, lagoon` (REQUIRED)
+3. rivers (-rivers) arguments: `# of rivers (defaults to random # of rivers)` (NOT REQUIRED)
+4. lakes (-lakes) arguments: `# of lakes (defaults to random # of lakes)` (NOT REQUIRED)
+5. aquifers (-aquifers) arguments: `# of aquifers (defaults to random # of aquifers)` (NOT REQUIRED)
+6. soil profile (-soil) arguments: `sand, clay, loam, Incorrect arguments(defaults to loam)` (REQUIRED)
+7. biome (-biome) arguments: `canada, indonesia, Incorrect arguments(defaults to canada)` (REQUIRED)
+8. heatmap (-heatmap) arguments: `altitude, absorption` (NOT REQUIRED)
 
 To test seed reproducibility, user must keep lakes/rivers/aquifers count consistent, or not include them, which will result in the seed generating them automatically.
-For example: -s square -e volcano -soil clay -biome canada -lakes 1 -rivers 2 -aquifers 3 -seed 10 
+For example: `-s square -e volcano -soil clay -biome canada -lakes 1 -rivers 2 -aquifers 3 -seed 10 `
 To test the seed while specificying lakes/rivers/aquifers, # of lakes, rivers, aquifers must be kept at 1, 2, 3
 
-For example: -s square -e volcano -soil clay -biome canada -seed 10
+For example: `-s square -e volcano -soil clay -biome canada -seed 10`
 To test the seed, you'd use the same command and # of lakes/aquifers/rivers will automically be generated and kept consistent for the seed.
 
 
