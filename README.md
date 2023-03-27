@@ -65,7 +65,7 @@ Note: PDF versions of the SVG files were created with `rsvg-convert`.
 
 ## Backlog
 
-### Definition of Done
+### Definition of Done 
 
 Feature is completed when it is the final version, fully implemented  with no further reiterations required.
 
