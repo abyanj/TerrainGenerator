@@ -6,6 +6,8 @@ public class Vertex implements Cropable<Vertex> {
 
     private static final int PRECISION = 2;
     private final int x, y;
+    private String cityName;
+    private CitySize citySize;
 
     public Vertex(float x, float y) {
         this.x = convert(x);
@@ -30,6 +32,33 @@ public class Vertex implements Cropable<Vertex> {
     private int convert(float x) {
         return (int) Math.round(x*Math.pow(10, PRECISION));
     }
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public CitySize getCitySize() {
+        return citySize;
+    }
+
+    public void setCitySize(CitySize citySize) {
+        this.citySize = citySize;
+    }
+
+    public boolean hasCity() {
+        return cityName != null;
+    }
+
+    public enum CitySize {
+        SMALL_HAMLET,
+        VILLAGE,
+        TOWN,
+        CITY,
+        CAPITAL_CITY
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -50,4 +79,5 @@ public class Vertex implements Cropable<Vertex> {
                 ", " + y() +
                 ')';
     }
+
 }
