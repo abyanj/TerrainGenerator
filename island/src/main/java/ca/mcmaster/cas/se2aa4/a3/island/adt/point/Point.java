@@ -58,6 +58,9 @@ public class Point {
     public Property getDefaultColor(){
         return Property.newBuilder().setKey("rgb_color").setValue(riverType.getValue()).build();
     }
+    public Property getCityColor(){
+        return Property.newBuilder().setKey("rgb_color").setValue(riverType.getValue()).build();
+    }
 
     public void setElevation(double elevation) {
         this.elevation = elevation;

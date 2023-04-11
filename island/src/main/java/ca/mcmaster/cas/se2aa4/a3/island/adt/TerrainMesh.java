@@ -7,6 +7,7 @@ import ca.mcmaster.cas.se2aa4.a3.island.adt.tile.Tile;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class TerrainMesh {
     List<Tile> tiles = new ArrayList<>();
@@ -21,6 +22,7 @@ public class TerrainMesh {
         List<Vertex> sourceVertices = inputMesh.getVerticesList();
         for (Vertex v : sourceVertices){
             points.add(new Point(v));
+
         }
         for (Segment s : sourceSegments){
             edges.add(new Edge(s, points));
@@ -115,7 +117,21 @@ public class TerrainMesh {
         List<Vertex> newVertices = new ArrayList<>();
         for (Point p : points){
             Vertex v = p.getFoundationVertex();
-            newVertices.add(Vertex.newBuilder(v).addProperties(p.getDefaultColor()).build());
+            Random rand = new Random();
+            int thicknessProperty = rand.nextInt(5)+1;
+            if (rand.nextInt(10) < 1) {
+                Property thickness = Property.newBuilder().setKey("thickness").setValue(Integer.toString(thicknessProperty)).build();
+                int red = rand.nextInt(255);
+                int green = rand.nextInt(255);
+                int blue = rand.nextInt(255);
+                String colorCode = red + "," + green + "," + blue;
+                Property color = Property.newBuilder().setKey("rgb_color").setValue(colorCode).build();
+
+                newVertices.add(Vertex.newBuilder(v).addProperties(color).addProperties(thickness).build());
+            } else {
+                newVertices.add(Vertex.newBuilder(v).addProperties(p.getDefaultColor()).build());
+            }
+
         }
 
         return Mesh.newBuilder(inputMesh)

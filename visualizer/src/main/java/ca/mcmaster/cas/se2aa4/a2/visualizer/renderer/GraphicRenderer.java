@@ -9,7 +9,9 @@ import java.awt.Graphics2D;
 import java.awt.Stroke;
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.geom.Ellipse2D;
 import java.awt.geom.Path2D;
+import java.sql.Struct;
 import java.util.Iterator;
 import java.util.Optional;
 
@@ -22,6 +24,7 @@ public class GraphicRenderer implements Renderer {
         canvas.setStroke(stroke);
         drawPolygons(aMesh,canvas);
         drawSegments(aMesh, canvas);
+        drawVertexs(aMesh, canvas);
     }
 
     private void drawPolygons(Mesh aMesh, Graphics2D canvas) {
@@ -59,6 +62,24 @@ public class GraphicRenderer implements Renderer {
             drawASegment(s, aMesh, canvas);
         }
     }
+    private void drawVertexs(Mesh aMesh, Graphics2D canvas){
+        for(Structs.Vertex v: aMesh.getVerticesList()){
+            drawVertex(v, aMesh, canvas);
+        }
+    }
+    private void drawVertex(Structs.Vertex v, Mesh aMesh, Graphics2D canvas){
+            for(Structs.Property prop: v.getPropertiesList()){
+                if(prop.getKey().equals("thickness")){
+                    int THICKNESS = extractThickness(v);
+                    double centre_x = v.getX() - (THICKNESS/2.0d);
+                    double centre_y = v.getY() - (THICKNESS/2.0d);
+                    canvas.setColor(extractColor(v));
+                    Ellipse2D point = new Ellipse2D.Double(centre_x, centre_y, THICKNESS, THICKNESS);
+                    canvas.fill(point);
+                }
+            }
+    }
+
 
     private void drawASegment(Structs.Segment s, Mesh aMesh, Graphics2D canvas){
         Vertex v1 = aMesh.getVertices(s.getV1Idx());
@@ -85,5 +106,33 @@ public class GraphicRenderer implements Renderer {
         Stroke stroke = new BasicStroke(0.3f);
         canvas.setStroke(stroke);
     }
+    private int extractThickness(Structs.Vertex v){
+        int value = 0;
+        for (Structs.Property p: v.getPropertiesList()){
+            if(p.getKey().equals("thickness")){
+                value = Integer.parseInt(p.getValue());
+                return value;
+
+            }
+        }
+
+        return value;
+
+    }
+    private Color extractColor(Structs.Vertex v){
+        String value = "";
+        for (Structs.Property p: v.getPropertiesList()){
+            if(p.getKey().equals("rgb_color")){
+                value = p.getValue();
+            }
+        }
+        String[] raw = value.split(",");
+        int red = Integer.parseInt(raw[0]);
+        int green = Integer.parseInt(raw[1]);
+        int blue = Integer.parseInt(raw[2]);
+        return new Color(red, green, blue);
+    }
+
+
 
 }
