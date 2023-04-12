@@ -4,3 +4,4 @@ import java.util.List;
 public interface Pathfinder {
     List<Node> findPath(Node startNode, Node endNode);
 }
+
