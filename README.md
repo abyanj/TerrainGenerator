@@ -100,10 +100,4 @@ Feature is completed when it is the final version, fully implemented  with no fu
 | F15 | Choice of Whittaker diagram | Farhan | 03/25 | 03/26 | Done |
 | F16 | Heatmaps | Abyan | 03/11 | 03/26 | Done |
 
-### A4 Product Backlog
-
-| Id | Feature title | Who? | Start | End | Status |
-|:--:|---------------|------|-------|-----|--------|
-| F01 | Graph ADT | Abyan | 04/11 | 04/11 | Done |
-| F02 | PathFinding | Abyan | 04/11| 04/11 | Done |
 

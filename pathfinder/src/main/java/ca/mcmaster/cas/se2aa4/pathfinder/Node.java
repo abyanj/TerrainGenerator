@@ -4,27 +4,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Node {
-    private String id;
-    private Map<String, Object> attributes;
-
+    private final String id;
+    private int idx = 0;
     public Node(String id) {
         this.id = id;
-        this.attributes = new HashMap<>();
     }
 
     public String getId() {
         return id;
+
+    }
+    public int getIdx() {
+        return idx;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdx(int idx) {
+        this.idx = idx;
     }
 
-    public void setAttribute(String key, Object value) {
-        attributes.put(key, value);
-    }
 
-    public Object getAttribute(String key) {
-        return attributes.get(key);
-    }
 }
+

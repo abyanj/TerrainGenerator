@@ -104,12 +104,12 @@ public class Main {
                 //Add more heatmap options as more cases
                 default:
                     terrainMesh.calculateBiome(config.biome()); //null arg until Whittaker Diagrams implemented
-                    outputMesh = terrainMesh.addColor(inputMesh);
+                    outputMesh = terrainMesh.addColor(inputMesh, config.city());
                     break;
             }
         } else {
             terrainMesh.calculateBiome(config.biome()); //null arg until Whittaker Diagrams implemented
-            outputMesh = terrainMesh.addColor(inputMesh);
+            outputMesh = terrainMesh.addColor(inputMesh, config.city());
         }
 
         new MeshFactory().write(outputMesh, config.output());

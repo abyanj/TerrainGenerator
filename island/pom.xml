@@ -19,6 +19,11 @@
     <dependencies>
         <dependency>
             <groupId>io.github.ace-design</groupId>
+            <artifactId>2aa4.mesh.pathfinder</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.ace-design</groupId>
             <artifactId>2aa4.mesh.io</artifactId>
             <version>1.0</version>
         </dependency>
@@ -42,7 +47,14 @@
             <artifactId>log4j-core</artifactId>
             <version>2.19.0</version>
         </dependency>
+        <dependency>
+            <groupId>io.github.ace-design</groupId>
+            <artifactId>2aa4.mesh.pathfinder</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
+
 
     <build>
         <plugins>

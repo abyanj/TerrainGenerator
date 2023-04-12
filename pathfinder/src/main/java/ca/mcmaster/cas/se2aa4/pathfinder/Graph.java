@@ -1,40 +1,60 @@
 package ca.mcmaster.cas.se2aa4.pathfinder;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class Graph {
-    private Map<String, Node> nodes;
-    private Map<String, Set<String>> adjacencyList;
+    Map<Node, List<Connection>> adjacencyList;
+    List<Node> nodeList = new ArrayList<>();
+    public HashMap<Integer, Node> allNode = new HashMap<>();
 
     public Graph() {
-        nodes = new HashMap<>();
-        adjacencyList = new HashMap<>();
+        this.adjacencyList = new HashMap<>();
     }
 
-    public void addNode(Node node) {
-        nodes.put(node.getId(), node);
-        adjacencyList.put(node.getId(), new HashSet<>());
+    public void addEdge(Node firstNode, Node finalNode, double weight) {
+        Connection edge = new Connection(firstNode, finalNode, weight);
+        adjacencyList.putIfAbsent(firstNode, new LinkedList<>());
+        adjacencyList.get(firstNode).add(edge);
+
+        // if not already in list, add node
+        if (!nodeList.contains(firstNode)) {
+            nodeList.add(firstNode);
+        }
+        if (!nodeList.contains(finalNode)) {
+            nodeList.add(finalNode);
+        }
+
+        Connection reverseEdge = new Connection(finalNode, firstNode, weight);
+        adjacencyList.putIfAbsent(finalNode, new LinkedList<>());
+        adjacencyList.get(finalNode).add(reverseEdge);
     }
 
-    public void addEdge(String nodeId1, String nodeId2) {
-        adjacencyList.get(nodeId1).add(nodeId2);
-        adjacencyList.get(nodeId2).add(nodeId1);
+
+    private double getPathDistance(List<Node> path) {
+        double distance = 0;
+
+        for (int i = 0; i < path.size() - 1; i++) {
+            Node firstNode = path.get(i);
+            Node finalNode = path.get(i + 1);
+
+            for (Connection edge : getEdges(firstNode)) {
+                if (edge.getDestination().equals(finalNode)) {
+                    distance += edge.getWeight();
+                    break;
+                }
+            }
+        }
+
+        return distance;
     }
 
-    public Node getNode(String nodeId) {
-        return nodes.get(nodeId);
-    }
-
-    public Map<String, Node> getNodes() {
-        return nodes;
+    public List<Connection> getEdges(Node node) {
+        return adjacencyList.get(node);
     }
 
 
-
-    public Set<String> getNeighbors(String nodeId) {
-        return adjacencyList.get(nodeId);
-    }
 }
