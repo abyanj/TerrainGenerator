@@ -29,7 +29,7 @@ One can run the generator with `-help` as option to see the different command li
 ### Terrain generation of a mesh
 
 ```
-java -jar island/island.jar -i img/irregular.mesh -o img/irregularisland.mesh -s circle -e volcano -soil clay -biome canada -seed 22
+java -jar island/island.jar -i img/irregular.mesh -o img/irregularisland.mesh -s circle -e volcano -soil clay -biome canada -seed 22 -city 10
 ```
 
 1. shape (-s) arguments: `circle, square` (REQUIRED)
@@ -40,9 +40,10 @@ java -jar island/island.jar -i img/irregular.mesh -o img/irregularisland.mesh -s
 6. soil profile (-soil) arguments: `sand, clay, loam, Incorrect arguments(defaults to loam)` (REQUIRED)
 7. biome (-biome) arguments: `canada, indonesia, Incorrect arguments(defaults to canada)` (REQUIRED)
 8. heatmap (-heatmap) arguments: `altitude, absorption` (NOT REQUIRED)
+9. city (-city) arguments `# of cities (if 0 is the input parameter then defaults to 10)` (REQUIRED)
 
 To test seed reproducibility, user must keep lakes/rivers/aquifers count consistent, or not include them, which will result in the seed generating them automatically.
-For example: `-s square -e volcano -soil clay -biome canada -lakes 1 -rivers 2 -aquifers 3 -seed 10 `
+For example: `-s square -e volcano -soil clay -biome canada -lakes 1 -rivers 2 -aquifers 3 -seed 10`
 To test the seed while specificying lakes/rivers/aquifers, # of lakes, rivers, aquifers must be kept at 1, 2, 3
 
 For example: `-s square -e volcano -soil clay -biome canada -seed 10`
