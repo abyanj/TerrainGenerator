@@ -100,4 +100,3 @@ Feature is completed when it is the final version, fully implemented  with no fu
 | F15 | Choice of Whittaker diagram | Farhan | 03/25 | 03/26 | Done |
 | F16 | Heatmaps | Abyan | 03/11 | 03/26 | Done |
 
-

@@ -168,7 +168,6 @@ public class TerrainMesh {
                     ArrayList<Node> path = new ArrayList<>(shortestPath);
 
                     for (int i = 0; i < path.size() - 1; i++) {
-                        System.out.println(path.get(i).getId());
                         Structs.Property thickness = Structs.Property.newBuilder().setKey("thickness").setValue(Integer.toString(5)).build();
                         newSegments.add(Structs.Segment.newBuilder().setV1Idx(path.get(i).getIdx()).setV2Idx(path.get(i + 1).getIdx()).addProperties(color).addProperties(thickness).build());
 

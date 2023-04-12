@@ -34,24 +34,6 @@ public class Graph {
     }
 
 
-    private double getPathDistance(List<Node> path) {
-        double distance = 0;
-
-        for (int i = 0; i < path.size() - 1; i++) {
-            Node firstNode = path.get(i);
-            Node finalNode = path.get(i + 1);
-
-            for (Connection edge : getEdges(firstNode)) {
-                if (edge.getDestination().equals(finalNode)) {
-                    distance += edge.getWeight();
-                    break;
-                }
-            }
-        }
-
-        return distance;
-    }
-
     public List<Connection> getEdges(Node node) {
         return adjacencyList.get(node);
     }
