@@ -1,6 +1,6 @@
-# Assignment 4: Urbanism
+# EcoMatrix: Terrain Generator
 
-- Author #1 jaigia1@mcmaster.ca
+- Author #1 Abyan Jaigirdar
 
 ## How to install?
 
